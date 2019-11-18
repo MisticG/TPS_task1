@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to Chuck Norris home page!</title>
-    <script src="chuckScript.js"></script>
+    <title>Welcome to my silly home page!</title>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body onload="inItSite()">
+<body onload="initSite()">
 <div class="container-fluid">
     <h1 class="text-center mt-4">Welcome to Chuck Norris!</h1>
     <button type="button" class="btn btn-primary" onclick="getChuckieQuote()">Click Me!</button>
     <main></main>
     <div>
         <form name="movieForm">
-            <input type="text" value="location" name="area"></input>
+            <input type="text" value="location" name="search"></input>
         </form>
         <button type="button" class="btn btn-primary" onclick="getMovieInfo()">Search movie</button>
     </div>
