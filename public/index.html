@@ -5,21 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to my silly home page!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body onload="initSite()">
-<div class="container-fluid">
-    <h1 class="text-center mt-4">Welcome to Chuck Norris!</h1>
-    <button type="button" class="btn btn-primary" onclick="getChuckieQuote()">Click Me!</button>
-    <main></main>
-    <div>
-        <form name="movieForm">
-            <input type="text" name="search"></input>
-        </form>
-        <button type="button" class="btn btn-primary" onclick="getMovieInfo()">Search movie</button>
+<div>
+    <nav>
+        <div class="nav nav-tabs justify-content-center mt-2" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active font-weight-bold text-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><h5>Chuckies nunChucks</h5></a>
+            <a class="nav-item nav-link font-weight-bold text-success" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><h5>Movie Knights</h5></a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <h1 class="text-center mt-4">Welcome to Chuck Norris!</h1>
+            <button type="button" class="btn btn-primary" onclick="getChuckieQuote()">If you feel like a man, click here!</button>
+            <main></main>
+            <!--Stoppa in chucks citat här.-->
+            <!--Idé: Lista med favoritcitat-->
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="container2 container-fluid text-center">
+                <h1 class="display-2 header2">Movie Knights <br>
+                    <small class="text-muted">Search for your favourite movie!</small>
+                </h1>
+                <form name="movieForm">
+                    <div class="form-row justify-content-center">
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInput">Name</label>
+                            <input type="text" class="form-control mb-2" id="inlineFormInput" name="search" placeholder="Movie title...">
+                        </div>
+                    
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-primary mb-2" onclick="getMovieInfo()">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div id="movieContainer"></div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </html>

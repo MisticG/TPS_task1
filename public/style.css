@@ -1,0 +1,26 @@
+body {
+    width: 100%;
+    margin: 0;
+    color: whitesmoke;
+}
+
+.container-fluid {
+    margin: 0
+}
+
+.container2 {
+    background-image: url('theatre.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header2 {
+    color: whitesmoke;
+    padding-top: 0.5em;
+}
+
+.form-row {
+    margin-top: 2em;
+}

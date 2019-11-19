@@ -1,4 +1,6 @@
 function initSite() {
+    //$('#nav-home-tab a[href="#nav-home"]').tab('show')
+    //$('nav-profile-tab a[href="#nav-profile"]').tab('show')
 
 }
 
@@ -21,7 +23,7 @@ function getMovieInfo() {
     }).then(res =>
         res.json()
     ).then(data => {
-        console.log(data.Plot)
+        console.log(data)
     }).catch(err =>
         console.error(err))
 }
