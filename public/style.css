@@ -4,6 +4,10 @@ body {
     color: whitesmoke;
 }
 
+main {
+    display: flex;
+}
+
 .container-fluid {
     margin: 0
 }
@@ -23,4 +27,19 @@ body {
 
 .form-row {
     margin-top: 2em;
+}
+
+.movieContainer {
+    background-color: whitesmoke;
+    color: rgba(26, 24, 24, 0.075);
+    width: 40em;
+    height: 30em;
+    margin: 1.5em 0 0 3em;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.imageContainer {
+    width: 4em;
+    height: 3em;
 }

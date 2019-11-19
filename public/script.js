@@ -25,5 +25,32 @@ function getMovieInfo() {
     ).then(data => {
         console.log(data)
     }).catch(err =>
-        console.error(err))
+        console.error(err)
+    )
+
+    movieInfoBox();
+    
+}
+
+function movieInfoBox() {
+    var movieMain = document.getElementsByTagName('main')[1]
+    var movieDiv = document.createElement('div')
+    movieDiv.classList = 'movieContainer' 
+    movieDiv.style.color = 'black'
+    movieDiv.innerHTML = 'hej'
+
+    movieMain.appendChild(movieDiv)
+    movieInfoImage()
+}
+
+function movieInfoImage() {
+    var movieMain = document.getElementsByTagName('main')[1]
+    var movieImageDiv = document.createElement('div')
+    var movieImage = document.createElement('img')
+    movieImageDiv.classList = 'imageContainer'
+    movieImage.src = 'theatre.jpg'
+    //göra en klass för image src o styla den i samma storlek som imagecontainer. Borderradius och eventuella transitions
+
+    movieImageDiv.appendChild(movieImage)
+    movieMain.appendChild(movieImageDiv)
 }
