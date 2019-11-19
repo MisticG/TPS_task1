@@ -13,14 +13,15 @@ function getChuckieQuote() {
         console.error(err))
 }
 
-function makeRequest() {
+function postMovieInfo() {
+    var searchInput = document.forms['movieForm']['search'].value
 
-}
-
-function printChuckieInfo() {
-
-}
-
-function printMovieInfo() {
-
+    fetch('/api/postMovie/?search=' + searchInput, {
+        method: 'GET',
+    }).then(res =>
+        res.json()
+    ).then(data => {
+        console.log(data)
+    }).catch(err =>
+        console.error(err))
 }
