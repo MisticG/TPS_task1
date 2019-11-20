@@ -48,7 +48,8 @@ function movieInfoImage() {
     var movieImageDiv = document.createElement('div')
     var movieImage = document.createElement('img')
     movieImageDiv.classList = 'imageContainer'
-    movieImage.src = 'theatre.jpg'
+    movieImage.classList = 'imageSrc'
+    movieImage.src = 'tiger.jpg'
     //göra en klass för image src o styla den i samma storlek som imagecontainer. Borderradius och eventuella transitions
 
     movieImageDiv.appendChild(movieImage)

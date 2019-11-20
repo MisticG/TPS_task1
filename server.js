@@ -27,7 +27,7 @@ app.get('/api/chuckieJoke', (req, res) => {
 
 app.get('/api/movieInfo', (req, res) => {
     let searchInput = req.query.search
-    fetch(movieUrl + searchInput + '&plot=full' + '&apikey=' + movieKey, {
+    fetch(movieUrl + searchInput + '&plot=full&apikey=' + movieKey, {
         method: 'GET',
     })
     .then(res => res.json())
