@@ -29,13 +29,17 @@ function getMovieInfo() {
     )
 
     movieInfoBox();
-    
 }
 
 function movieInfoBox() {
     var movieMain = document.getElementsByTagName('main')[1]
     var movieDiv = document.createElement('div')
-    movieDiv.classList = 'movieContainer' 
+    movieDiv.classList = 'movieContainer'
+    if(movieDiv.style.opacity == 0) {
+        movieDiv.classList.add('fadeIn')
+    } else {
+        movieDiv.style.opacity = 0
+    }
     movieDiv.style.color = 'black'
     movieDiv.innerHTML = 'hej'
 
@@ -47,7 +51,12 @@ function movieInfoImage() {
     var movieMain = document.getElementsByTagName('main')[1]
     var movieImageDiv = document.createElement('div')
     var movieImage = document.createElement('img')
-    movieImageDiv.classList = 'imageContainer'
+    movieImageDiv.classList= 'imageContainer'
+    if(movieImageDiv.style.opacity == 0) {
+        movieImageDiv.classList.add('fadeIn')
+    } else {
+        movieImageDiv.style.opacity = 0
+    }
     movieImage.classList = 'imageSrc'
     movieImage.src = 'tiger.jpg'
     //göra en klass för image src o styla den i samma storlek som imagecontainer. Borderradius och eventuella transitions
