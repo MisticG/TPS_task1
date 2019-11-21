@@ -7,6 +7,7 @@ function initSite() {
 var mData;
 var movieData;
 var searchInput;
+var listBoxExist;
 
 function getChuckieQuote() {
     fetch('http://localhost:3000/api/chuckieJoke', {
@@ -99,6 +100,7 @@ function getClickedMovieIndex() {
 }
 
 function getMoviePlot(movieIndex) {
+    $('#movieModal').modal('toggle');
     //console.log(mData[movieIndex - 1].Title)
     var imdbId = mData[movieIndex].imdbID
     fetch('/api/movieImdb/?search=' + imdbId, {

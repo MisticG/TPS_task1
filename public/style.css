@@ -9,6 +9,10 @@ main {
     justify-content: center;
 }
 
+#model {
+    visibility: hidden
+}
+
 .container2 {
     background-image: url('theatre.jpg');
     background-repeat: no-repeat;
