@@ -1,13 +1,10 @@
-function initSite() {
-    //$('#nav-home-tab a[href="#nav-home"]').tab('show')
-    //$('nav-profile-tab a[href="#nav-profile"]').tab('show')
-
-}
-
 var mData;
 var movieData;
-var searchInput;
-var listBoxExist;
+var movieDivExist;
+
+function initSite() {
+    movieDivExist = false;
+}
 
 function getChuckieQuote() {
     fetch('http://localhost:3000/api/chuckieJoke', {
@@ -21,7 +18,11 @@ function getChuckieQuote() {
 }
 
 function getMovieInfo() {
-    searchInput = document.forms['movieForm']['search'].value
+    var searchInput = document.forms['movieForm']['search'].value
+    if (movieDivExist) {
+        document.getElementsByTagName('main')[1].innerHTML = "";
+    }
+    document.getElementById('movieform').reset()
 
     fetch('/api/movieInfo/?search=' + searchInput, {
         method: 'GET',
@@ -40,21 +41,20 @@ function getMovieInfo() {
 function movieInfoBox() {
     mData = movieData.Search
     var x = 0;
-    /*if(movieData.Search == undefined) {
-        alert('No movie found! Try again!')
-        searchInput = document.getElementById('myForm').reset()
-    }*/
     var movieMain = document.getElementsByTagName('main')[1]
     var movieDiv = document.createElement('div')
+    movieDiv.id = 'movieDivId'
     var movieOl = document.createElement('ol')
     movieOl.id = 'orderedListId'
     movieDiv.classList = 'movieContainer'
+    movieDivExist = true
 
     if(movieDiv.style.opacity == 0) {
         movieDiv.classList.add('fadeIn')
     } else {
         movieDiv.style.opacity = 0
     }
+
     mData.forEach( data => {
         var movieLi = document.createElement('li')
         movieLi.id = x++
@@ -101,7 +101,6 @@ function getClickedMovieIndex() {
 
 function getMoviePlot(movieIndex) {
     $('#movieModal').modal('toggle');
-    //console.log(mData[movieIndex - 1].Title)
     var imdbId = mData[movieIndex].imdbID
     fetch('/api/movieImdb/?search=' + imdbId, {
         method: 'GET',
