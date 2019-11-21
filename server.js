@@ -7,7 +7,7 @@ const chuckieKey = '4fb12825b7msh51f653b00d3a3e4p134a2ajsn85857b79fc18'
 const chucksUrl = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random'
 
 const movieKey = '13dc0edf'
-const movieUrl = 'http://www.omdbapi.com/?t='
+const movieUrl = 'http://www.omdbapi.com/?s='
 
 app.use(express.static('public'))
 
