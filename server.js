@@ -3,11 +3,16 @@ const fetch = require('node-fetch')
 const app = express()
 const port = 3000
 
+//ChuckieApi
 const chuckieKey = '4fb12825b7msh51f653b00d3a3e4p134a2ajsn85857b79fc18'
 const chucksUrl = 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random'
 
+//OMDbApi
 const movieKey = '13dc0edf'
 const movieUrl = 'http://www.omdbapi.com/?s='
+
+//IMDbUrl
+const imdbUrl = 'http://www.omdbapi.com/?i='
 
 app.use(express.static('public'))
 
@@ -28,6 +33,17 @@ app.get('/api/chuckieJoke', (req, res) => {
 app.get('/api/movieInfo', (req, res) => {
     let searchInput = req.query.search
     fetch(movieUrl + searchInput + '&plot=full&apikey=' + movieKey, {
+        method: 'GET',
+    })
+    .then(res => res.json())
+    .then(json => { 
+        res.send(json)
+    }).catch(err => console.error(err))
+})
+
+app.get('/api/movieImdb', (req, res) => {
+    let ImdbId = req.query.search
+    fetch(imdbUrl + ImdbId + '&plot=full&apikey=' + movieKey, {
         method: 'GET',
     })
     .then(res => res.json())
