@@ -1,9 +1,12 @@
 var mData;
 var movieData;
 var movieDivExist;
+var movieContent;
+var modalExist;
 
 function initSite() {
     movieDivExist = false;
+    modalExist = false;
 }
 
 function getChuckieQuote() {
@@ -30,9 +33,7 @@ function getMovieInfo() {
         res.json()
     ).then(data => {
         movieData = data
-        console.log(data)
         movieInfoBox()
-        //movieInfoImage()
     }).catch(err =>
         console.error(err)
     )
@@ -64,23 +65,11 @@ function movieInfoBox() {
         movieOl.appendChild(movieLi)
     })
     
-    //console.log(movieData.Search)
-    /*movieDiv.innerHTML = 
-    '<h5>Title: </h5>' + 
-    '<p>' + movieData.Search + '</p>' */
-    /*'<h5>Year: </h5>' + 
-    '<p>' + movieData.Year + '</p>' +
-    '<h5>Plot: </h5>' + 
-    '<p>' + movieData.Plot + '</p>' +
-    '<h5>Rating IMDb: </h5>' + 
-    '<p>' + movieData.Ratings[0].Value + '</p>' */
-    
     movieDiv.style.color = 'black'
     
     movieDiv.appendChild(movieOl)
     movieMain.appendChild(movieDiv)
     getClickedMovieIndex();
-    //console.log(mData[index].imdbID)
 }
 
 function getClickedMovieIndex() {
@@ -90,16 +79,20 @@ function getClickedMovieIndex() {
         var target = e.target; // Clicked element
         while (target && target.parentNode !== ol) {
             target = target.parentNode; // If the clicked element isn't a direct child
-            if(!target) { return; } // If element doesn't exist
+            if(!target) { 
+                return; 
+            } // If element doesn't exist
         }
-        if (target.tagName === 'LI'){
-            //console.log(target.id); Check if the element is a LI
+        if (target.tagName === 'LI'){ //Check if the element is a LI
             getMoviePlot(target.id);
         }
     });
 }
 
 function getMoviePlot(movieIndex) {
+    if (modalExist) {
+        document.getElementById('movieContent').innerHTML = "";
+    }
     $('#movieModal').modal('toggle');
     var imdbId = mData[movieIndex].imdbID
     fetch('/api/movieImdb/?search=' + imdbId, {
@@ -107,14 +100,34 @@ function getMoviePlot(movieIndex) {
     }).then(res =>
         res.json()
     ).then(data => {
-        console.log(data)
+        movieContent = data
+        movieModal()
+        movieImage()
     }).catch(err =>
         console.error(err)
     )
 }
 
-/*function movieInfoImage() {
-    var movieMain = document.getElementsByTagName('main')[1]
+function movieModal() {
+    var movieContents = document.getElementById('movieContent')
+    var movieContentDiv = document.createElement('div')
+    movieContentDiv.classList = 'modalDiv'
+    movieContentDiv.innerHTML = 
+        '<h4>Title: </h4>' + 
+        '<p>' + movieContent.Title + '</p>' + 
+        '<h4>Year: </h4>' + 
+        '<p>' + movieContent.Year + '</p>' +
+        '<h4>Plot: </h4>' + 
+        '<p>' + movieContent.Plot + '</p>' +
+        '<h4>Rating IMDb: </h4>' + 
+        '<p>' + movieContent.Ratings[0].Value + '</p>'
+
+    modalExist = true
+    movieContents.appendChild(movieContentDiv)
+}
+
+function movieImage() {
+    var movieContents = document.getElementById('movieContent')
     var movieImageDiv = document.createElement('div')
     var movieImage = document.createElement('img')
     movieImageDiv.classList= 'imageContainer'
@@ -126,9 +139,8 @@ function getMoviePlot(movieIndex) {
     }
 
     movieImage.classList = 'imageSrc'
-    movieImage.src = movieData.Poster
-    //göra en klass för image src o styla den i samma storlek som imagecontainer. Borderradius och eventuella transitions
+    movieImage.src = movieContent.Poster
 
     movieImageDiv.appendChild(movieImage)
-    movieMain.appendChild(movieImageDiv)
-}*/
+    movieContents.appendChild(movieImageDiv)
+}

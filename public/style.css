@@ -9,10 +9,6 @@ main {
     justify-content: center;
 }
 
-#model {
-    visibility: hidden
-}
-
 .container2 {
     background-image: url('theatre.jpg');
     background-repeat: no-repeat;
@@ -52,17 +48,28 @@ main {
     50% { opacity:0.5; } 
     100% { opacity:1; } 
    }
-
+.modalDiv {
+    width: 40em;
+    height: 30em;
+    padding: 1em;
+    font-size: 1.2em;
+    color: black;
+    text-align: left;
+}
 .imageContainer {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 0 10px 10px 0;
-    margin-top: 1.5em;
-    opacity: 0
+    opacity: 0;
+    padding-right: 2em;
+}
+
+.modal-content {
+    flex-direction: row;
 }
 
 .imageSrc {
     border-radius: 0 10px 10px 0;
-    width: 40em;
-    height: 30em;
+    width: 30em;
+    height: 50em;
     object-fit: contain;
 }
