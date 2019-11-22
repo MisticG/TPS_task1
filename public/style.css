@@ -63,6 +63,11 @@ main {
     100% { opacity:1; } 
 }
 
+li:hover {
+    color: lightseagreen;
+    cursor: pointer;
+  }
+
 .modalDiv {
     width: 40em;
     height: 30em;
