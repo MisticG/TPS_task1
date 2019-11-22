@@ -113,7 +113,7 @@ function movieModal() {
         '<h4>Plot: </h4>' + 
         '<p>' + movieContent.Plot + '</p>' +
         '<h4>Rating IMDb: </h4>' + 
-        '<p>' + movieContent.Ratings[0].Value + '</p>'
+        '<p>' + movieContent.imdbRating + '</p>'
 
     modalExist = true
     movieContents.appendChild(movieContentDiv)
