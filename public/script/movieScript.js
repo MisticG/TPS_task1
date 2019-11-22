@@ -6,11 +6,11 @@ var modalExist;
 
 function initSite() {
     movieDivExist = false;
-    modalExist = false;
+    modalExist = false; 
 }
 
 function getMovieInfo() {
-    var searchInput = document.forms['movieForm']['search'].value
+    var searchInput = document.getElementById('inlineFormInput').value
     if (movieDivExist) {
         document.getElementsByTagName('main')[1].innerHTML = "";
     }

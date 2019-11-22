@@ -24,8 +24,6 @@
             <div class="container1">
             <button type="button" class="btn btn-dark btn-lg" onclick="getChuckieQuote()" style="margin: 4em 0 0 15em;">Press here for a glimpse of my life...</button>
             <main></main>
-            <!--Stoppa in chucks citat här.-->
-            <!--Idé: Lista med favoritcitat-->
         </div>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -33,15 +31,15 @@
                 <h1 class="display-2 header2">Movie Knights <br>
                     <small class="text-muted">Search for your favourite movie</small>
                 </h1>
-                <form id="movieform" name="movieForm">
+                <form id="movieform" name="movieForm" onsubmit="getMovieInfo(); return false">
                     <div class="form-row justify-content-center">
                         <div class="col-auto">
                             <label class="sr-only" for="inlineFormInput">Name</label>
-                            <input type="text" class="form-control mb-2" id="inlineFormInput" name="search" placeholder="Anything...">
+                            <input  type="text" class="form-control mb-2" id="inlineFormInput" name="search" placeholder="Anything...">
                         </div>
                     
                         <div class="col-auto">
-                            <button type="button" class="btn btn-primary mb-2" onclick="getMovieInfo()">Search</button>
+                            <button type="button" class="btn btn-primary mb-2" >Search</button>
                         </div>
                     </div>
                 </form>
