@@ -5,11 +5,14 @@ One to call an API to access Chuck Norris jokes and the other one to search for 
 # Install this:
 To open and use the project you will have to download/clone the project and have node installed with the following packages:
 
-Node express - install by writing $ npm i in the terminal and thereafter $ npm install express --save. Here is a guide https://expressjs.com/en/starter/installing.html
+Node express - install by typing **$ npm i** in the terminal and thereafter **$ npm install express --save** . Here is a guide https://expressjs.com/en/starter/installing.html
 
-Node fetch - install by writing $ npm install node-fetch --save in your terminal. This to be able to use the fetch method in Node. Documentation on how to use: https://www.npmjs.com/package/node-fetch
+Node fetch - install by writing **$ npm install node-fetch --save** in your terminal. This to be able to use the fetch method in Node. Documentation on how to use: https://www.npmjs.com/package/node-fetch
 
 Nodemon - this was only used to automatically restart the app after code change. Documentation: https://www.npmjs.com/package/nodemon. You don't need to install this if you are only looking at the project.
+
+**Start the Application:**
+type **$ npm run app** in your terminal and run **http://localhost:3000/** in your browser.
 
 # Used API's: 
 In the Chuck Norris part of the web page you are able to click on a button to get random jokes on the page. With every click you will get a new joke.
