@@ -18,6 +18,6 @@ type **$ npm run app** in your terminal and run **http://localhost:3000/** in yo
 In the Chuck Norris part of the web page you are able to click on a button to get random jokes on the page. With every click you will get a new joke.
 I used the API from RapidApi https://rapidapi.com/matchilling/api/chuck-norris and used the information to access the right resource.
 
-In the search movie part of the web page (Movie knights) you are able to search on any word to get a list of movies containing the search word in the title (it's limited to 10 movies). You can click on any movie title that pops up to get more information about the specific movie. I used a modal for this.
+In the search movie part of the web page (Movie knights) you are able to search on any word to get a list of movies containing the search word in the title (it's limited to 10 movies). You can click on any movie title that pops up to get more information about the specific movie. You can also type the title for a specific(!) movie if you're interested to only get information about that particular movie.
 For this part I used the OMDb Api @http://www.omdbapi.com/ which is a free Api after registration. The reason I didn't use IMDb is because I had to register my debit card to use it for free with limited requests. 
 
