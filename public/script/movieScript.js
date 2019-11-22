@@ -30,35 +30,39 @@ function getMovieInfo() {
 
 function movieInfoBox() {
     mData = movieData.Search
-    var x = 0;
-    var movieMain = document.getElementsByTagName('main')[1]
-    var movieDiv = document.createElement('div')
-    movieDiv.id = 'movieDivId'
-    var movieOl = document.createElement('ol')
-    movieOl.id = 'orderedListId'
-    movieDiv.classList = 'movieContainer'
-    movieDivExist = true
+    if(!(mData === undefined)) {
+        var x = 0;
+        var movieMain = document.getElementsByTagName('main')[1]
+        var movieDiv = document.createElement('div')
+        movieDiv.id = 'movieDivId'
+        var movieOl = document.createElement('ol')
+        movieOl.id = 'orderedListId'
+        movieDiv.classList = 'movieContainer'
+        movieDivExist = true
 
-    if(movieDiv.style.opacity == 0) {
-        movieDiv.classList.add('fadeIn')
+        if(movieDiv.style.opacity == 0) {
+            movieDiv.classList.add('fadeIn')
+        } else {
+            movieDiv.style.opacity = 0
+        }
+
+        mData.forEach( data => {
+            var movieLi = document.createElement('li')
+            movieLi.id = x++
+            movieLi.style.fontSize = 1.6 + 'em'
+            movieLi.innerText = data.Title  
+
+            movieOl.appendChild(movieLi)
+        })
+        
+        movieDiv.style.color = 'black'
+        
+        movieDiv.appendChild(movieOl)
+        movieMain.appendChild(movieDiv)
+        getClickedMovieIndex();
     } else {
-        movieDiv.style.opacity = 0
+        alert("Stop bashing your keyboard. Try again!")
     }
-
-    mData.forEach( data => {
-        var movieLi = document.createElement('li')
-        movieLi.id = x++
-        movieLi.style.fontSize = 1.6 + 'em'
-        movieLi.innerText = data.Title  
-
-        movieOl.appendChild(movieLi)
-    })
-    
-    movieDiv.style.color = 'black'
-    
-    movieDiv.appendChild(movieOl)
-    movieMain.appendChild(movieDiv)
-    getClickedMovieIndex();
 }
 
 function getClickedMovieIndex() {
